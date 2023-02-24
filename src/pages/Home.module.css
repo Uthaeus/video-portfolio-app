@@ -1,0 +1,16 @@
+.thumbnail {
+    display: inline-block;
+    margin: 10px;
+}
+
+.thumbnail img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.thumbnail:hover img {
+    border: 1px solid blue;
+}
