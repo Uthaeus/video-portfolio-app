@@ -3,6 +3,12 @@ import { NavLink } from 'react-router-dom';
 import classes from './MainNavigation.module.css';
 
 const MainNavigation = () => {
+    const isAuthenticated = sessionStorage.getItem('login') === '1' || false;
+
+    const logoutHandler = () => {
+        sessionStorage.setItem('login', '0');
+    }
+
     return (
         <header>
             <nav>
@@ -44,6 +50,21 @@ const MainNavigation = () => {
                         >Projects
                         </NavLink>
                     </li>
+                    
+                    <li>
+                        {isAuthenticated ? 
+                            <NavLink onClick={logoutHandler}>Logout</NavLink>
+                            :
+                            <NavLink 
+                                to='/projects'
+                                className={({ isActive }) =>
+                                    isActive ? classes.active : undefined
+                                }
+                            >Login
+                            </NavLink>
+                        }
+                    </li>
+                    
                 </ul>
             </nav>
         </header>
