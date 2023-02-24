@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom";
 
 import ProjectThumbnail from "../components/ProjectThumbnail";
 
 const ProjectsPage = () => {
+    const isAuthenticated = sessionStorage.get('login') === '1' || false;
     const projects = [
         {
           id: 1,
@@ -21,6 +23,7 @@ const ProjectsPage = () => {
     return (
         <>
           <h1>Projects Page</h1>
+          {isAuthenticated && <Link to='/projects/new'>Add New Project</Link>}
           <p>Welcome to my portfolio! Here are some of my recent projects:</p>
           <div className="thumbnails">
             {projects.map((project) => (

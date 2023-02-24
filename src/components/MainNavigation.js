@@ -53,10 +53,10 @@ const MainNavigation = () => {
                     
                     <li>
                         {isAuthenticated ? 
-                            <NavLink onClick={logoutHandler}>Logout</NavLink>
+                            <NavLink to='/' onClick={logoutHandler}>Logout</NavLink>
                             :
                             <NavLink 
-                                to='/projects'
+                                to='/login'
                                 className={({ isActive }) =>
                                     isActive ? classes.active : undefined
                                 }

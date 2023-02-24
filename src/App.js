@@ -6,6 +6,8 @@ import './App.css';
 import AboutPage from './pages/About';
 import ContactPage from './pages/Contact';
 import ProjectsPage from './pages/Projects';
+import LoginPage from './pages/Login';
+import NewProject from './pages/NewProject';
 
 const router = createBrowserRouter([
   {
@@ -17,16 +19,26 @@ const router = createBrowserRouter([
         element: <HomePage />
       },
       {
-        path: '/about',
+        path: 'about',
         element: <AboutPage />
       },
       {
-        path: '/contact-me',
+        path: 'contact-me',
         element: <ContactPage />
       },
       {
-        path: '/projects',
-        element: <ProjectsPage />
+        path: 'projects',
+        element: <ProjectsPage />,
+        children: [
+          {
+            path: 'new',
+            element: <NewProject />
+          }
+        ]
+      },
+      {
+        path: 'login',
+        element: <LoginPage />
       }
     ]
   }
