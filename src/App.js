@@ -7,12 +7,16 @@ import ContactPage from './pages/Contact';
 import ProjectsPage from './pages/Projects';
 import LoginPage from './pages/Login';
 import NewProject from './pages/NewProject';
+import ErrorPage from './pages/Error';
 import ProjectsRootLayout from './pages/ProjectsRoot';
+import ProjectDetailPage from './pages/ProjectDetail';
+import ProjectEditPage from './pages/ProjectEdit';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <RootLayout />,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: true,
@@ -37,6 +41,20 @@ const router = createBrowserRouter([
           {
             path: 'new',
             element: <NewProject />
+          },
+          {
+            path: ':projectId',
+            id: 'project-detail',
+            children: [
+              {
+                index: true,
+                element: <ProjectDetailPage />
+              },
+              {
+                path: 'edit',
+                element: <ProjectEditPage />
+              }
+            ]
           }
         ]
       },
