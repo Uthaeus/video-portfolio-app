@@ -2,12 +2,12 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 import HomePage from './pages/Home';
 import RootLayout from './pages/Root';
-import './App.css';
 import AboutPage from './pages/About';
 import ContactPage from './pages/Contact';
 import ProjectsPage from './pages/Projects';
 import LoginPage from './pages/Login';
 import NewProject from './pages/NewProject';
+import ProjectsRootLayout from './pages/ProjectsRoot';
 
 const router = createBrowserRouter([
   {
@@ -28,8 +28,12 @@ const router = createBrowserRouter([
       },
       {
         path: 'projects',
-        element: <ProjectsPage />,
+        element: <ProjectsRootLayout />,
         children: [
+          {
+            index: true,
+            element: <ProjectsPage />
+          }, 
           {
             path: 'new',
             element: <NewProject />
@@ -45,6 +49,7 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+
   return <RouterProvider router={router} />;
 }
 

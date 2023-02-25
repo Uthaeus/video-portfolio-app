@@ -1,19 +1,23 @@
 import { useRef } from "react";
+import { redirect } from "react-router-dom";
 
 const LoginPage = () => {
     const emailInput = useRef('');
     const passwordInput = useRef('');
-    let loginEmail = 'abcd123';
+    let loginEmail = 'abcd@123';
     let loginPassword = 'abcd123';
 
     const submitHandler = (event) => {
         event.preventDefault();
         
-        const enteredEmail = emailInput.current;
-        const enteredPassword = passwordInput.current;
+        const enteredEmail = emailInput.current.value;
+        const enteredPassword = passwordInput.current.value;
+
+        console.log(enteredEmail, enteredPassword);
         
         if (enteredEmail === loginEmail && enteredPassword === loginPassword) {
             sessionStorage.setItem('login', '1');
+            return redirect('/');
         }
     };
 

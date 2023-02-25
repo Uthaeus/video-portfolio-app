@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import ProjectThumbnail from "../components/ProjectThumbnail";
 
 const ProjectsPage = () => {
-    const isAuthenticated = sessionStorage.get('login') === '1' || false;
+    const isAuthenticated = sessionStorage.getItem('login') === '1';
     const projects = [
         {
           id: 1,

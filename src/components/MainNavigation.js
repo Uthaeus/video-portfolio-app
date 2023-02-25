@@ -1,11 +1,19 @@
+import { useEffect, useState } from 'react';
+
 import { NavLink } from 'react-router-dom';
 
 import classes from './MainNavigation.module.css';
 
 const MainNavigation = () => {
-    const isAuthenticated = sessionStorage.getItem('login') === '1' || false;
+    // const isAuthenticated = sessionStorage.getItem('login') === '1';
+    const [isAuthenticated, setIsAuthenticated] = useState(sessionStorage.getItem('login') === '1');
+
+    useEffect(() => {
+        setIsAuthenticated(sessionStorage.getItem('login') === '1');
+    }, [isAuthenticated])
 
     const logoutHandler = () => {
+        setIsAuthenticated(false);
         sessionStorage.setItem('login', '0');
     }
 
