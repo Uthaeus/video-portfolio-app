@@ -10,6 +10,12 @@ const AboutPage = () => {
             alt="Profile"
             className={classes['profile-picture']}
           />
+          <div className={classes.socials}>
+            <button><i>1</i></button>
+            <button><i>2</i></button>
+            <button><i>3</i></button>
+            <button><i>4</i></button>
+          </div>
           <p>
             Hi there! My name is Dude and I'm a video editor with over 5 years
             of experience. I specialize in creating engaging and visually stunning
