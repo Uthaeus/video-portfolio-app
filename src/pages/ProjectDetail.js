@@ -1,8 +1,12 @@
 
+import ProjectItem from "../components/ProjectItem";
 
 const ProjectDetailPage = () => {
     return (
-        <h1>Project Detail Page</h1>
+        <>
+            <h1>Project Detail Page</h1>
+            <ProjectItem />
+        </>
     );
 };
 
